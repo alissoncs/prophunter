@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:6.0 # ou a versão que você preferir
+    container_name: mongo_db
+    restart: always
+    ports:
+      - "27017:27017" # mapeamento da porta para o host
+    volumes:
+      - mongo_data:/data/db # persistência dos dados
+
+volumes:
+  mongo_data:
+    driver: local
